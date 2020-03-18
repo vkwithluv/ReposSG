@@ -1,0 +1,11 @@
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\obj\Debug\netcoreapp2.1\DogGenetics.csprojAssemblyReference.cache
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\obj\Debug\netcoreapp2.1\DogGenetics.csproj.CoreCompileInputs.cache
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\obj\Debug\netcoreapp2.1\DogGenetics.AssemblyInfoInputs.cache
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\obj\Debug\netcoreapp2.1\DogGenetics.AssemblyInfo.cs
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\bin\Debug\netcoreapp2.1\DogGenetics.deps.json
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\bin\Debug\netcoreapp2.1\DogGenetics.runtimeconfig.json
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\bin\Debug\netcoreapp2.1\DogGenetics.runtimeconfig.dev.json
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\bin\Debug\netcoreapp2.1\DogGenetics.dll
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\bin\Debug\netcoreapp2.1\DogGenetics.pdb
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\obj\Debug\netcoreapp2.1\DogGenetics.dll
+C:\Users\VKLaptop\source\Program.cs\DogGenetics\obj\Debug\netcoreapp2.1\DogGenetics.pdb
