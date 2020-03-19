@@ -1,0 +1,11 @@
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\bin\Debug\netcoreapp2.1\SummativeSums.deps.json
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\bin\Debug\netcoreapp2.1\SummativeSums.runtimeconfig.json
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\bin\Debug\netcoreapp2.1\SummativeSums.runtimeconfig.dev.json
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\bin\Debug\netcoreapp2.1\SummativeSums.dll
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\bin\Debug\netcoreapp2.1\SummativeSums.pdb
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\obj\Debug\netcoreapp2.1\SummativeSums.csprojAssemblyReference.cache
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\obj\Debug\netcoreapp2.1\SummativeSums.csproj.CoreCompileInputs.cache
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\obj\Debug\netcoreapp2.1\SummativeSums.AssemblyInfoInputs.cache
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\obj\Debug\netcoreapp2.1\SummativeSums.AssemblyInfo.cs
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\obj\Debug\netcoreapp2.1\SummativeSums.dll
+C:\Users\VKLaptop\Repos\ReposSG20\BasicProgrammingConcepts\ReposSG-BPS\SummativeSums\obj\Debug\netcoreapp2.1\SummativeSums.pdb
