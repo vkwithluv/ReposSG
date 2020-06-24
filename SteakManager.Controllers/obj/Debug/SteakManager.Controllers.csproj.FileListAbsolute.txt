@@ -1,0 +1,13 @@
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\bin\Debug\SteakManager.Controllers.dll
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\bin\Debug\SteakManager.Controllers.pdb
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\bin\Debug\SteakManager.Data.dll
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\bin\Debug\SteakManager.Models.dll
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\bin\Debug\SteakManager.Views.dll
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\bin\Debug\SteakManager.Data.pdb
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\bin\Debug\SteakManager.Models.pdb
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\bin\Debug\SteakManager.Views.pdb
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\obj\Debug\SteakManager.Controllers.csprojAssemblyReference.cache
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\obj\Debug\SteakManager.Controllers.csproj.CoreCompileInputs.cache
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\obj\Debug\SteakManager.Controllers.csproj.CopyComplete
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\obj\Debug\SteakManager.Controllers.dll
+C:\Users\VKLaptop\source\repos\SteakManager.Controllers\obj\Debug\SteakManager.Controllers.pdb

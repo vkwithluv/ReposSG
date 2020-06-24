@@ -1,0 +1,9 @@
+C:\Users\VKLaptop\source\repos\SteakManager.Data\bin\Debug\SteakManager.Data.dll
+C:\Users\VKLaptop\source\repos\SteakManager.Data\bin\Debug\SteakManager.Data.pdb
+C:\Users\VKLaptop\source\repos\SteakManager.Data\bin\Debug\SteakManager.Models.dll
+C:\Users\VKLaptop\source\repos\SteakManager.Data\bin\Debug\SteakManager.Models.pdb
+C:\Users\VKLaptop\source\repos\SteakManager.Data\obj\Debug\SteakManager.Data.csprojAssemblyReference.cache
+C:\Users\VKLaptop\source\repos\SteakManager.Data\obj\Debug\SteakManager.Data.csproj.CoreCompileInputs.cache
+C:\Users\VKLaptop\source\repos\SteakManager.Data\obj\Debug\SteakManager.Data.csproj.CopyComplete
+C:\Users\VKLaptop\source\repos\SteakManager.Data\obj\Debug\SteakManager.Data.dll
+C:\Users\VKLaptop\source\repos\SteakManager.Data\obj\Debug\SteakManager.Data.pdb
