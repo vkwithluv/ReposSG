@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 
 namespace SteakManager.Models
 {
@@ -30,9 +25,9 @@ namespace SteakManager.Models
             this.Weight = Weight;
             this.IsBoneIn = IsBoneIn;
 
-           string.Format
-                ("ID [Id: {0}; Steak Name: {1}; Steak Cut: {2}; Avg Weight in Ounces: {3}; Has Bone: {4}]",
-                Id, Name, Cut, Weight, IsBoneIn);
+            string.Format
+                 ("ID [Id: {0}; Steak Name: {1}; Steak Cut: {2}; Avg Weight in Ounces: {3}; Has Bone: {4}]",
+                 Id, Name, Cut, Weight, IsBoneIn);
         }
         public override string ToString() //Menu Display or View Display?
         {

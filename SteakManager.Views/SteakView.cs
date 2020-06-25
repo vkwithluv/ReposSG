@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Runtime.Remoting.Messaging;
 using SteakManager.Data;
 using SteakManager.Models;
 
@@ -23,13 +17,78 @@ namespace SteakManager.Views
             Console.WriteLine("Please enter the number of your chosen Menu option to begin.");
             Console.Write("1. Create/Add a New Steak \n2. Display List of Steaks \n3. Search for Steak by ID# \n4. Edit Steak In List \n5. Remove Steak From List");
             inputMenu = Console.ReadLine();
-            if (!int.TryParse(inputMenu, out MenuChoice) || MenuChoice < 1 || MenuChoice > 5)
+            if (int.TryParse(inputMenu, out MenuChoice) || MenuChoice < 1 || MenuChoice > 5)
             {
                 Console.WriteLine("Please enter a valid Menu choice, 1-5.");
-                MenuChoice = GetMenuChoice();
             }
-            return GetMenuChoice();
-        }
+            else if (int.TryParse(inputMenu, out MenuChoice) || MenuChoice > 1 || MenuChoice < 5)
+            {
+
+                ///MenuChoice = GetMenuChoice();
+
+                bool validMenu = true;
+
+
+                while (validMenu)
+                {
+                    switch (MenuChoice)
+                    {
+                        case 1:
+                            MenuChoice = 1;
+                            validMenu = true;
+                            SteakController.CreateSteak();
+                            break;
+                        case 2:
+                            MenuChoice = 2;
+                            validMenu = true;
+                            DisplaySteaks();
+                            break;
+                        case 3:
+                            MenuChoice = 3;
+                            validMenu = true;
+                            SearchSteaks();
+                            break;
+                        case 4:
+                            MenuChoice = 4;
+                            validMenu = true;
+                            ///SteakView.GetSteakId();
+                            var myEditId = new SteakView();
+                            var myId = SteakView.GetSteakId();
+                            var id = SteakRepository.ListById(myId); //search in list repo
+
+                            if (id == null)
+                            {
+                                Console.WriteLine("Not in list.");
+                            }
+                            else
+                            {
+                                var getsteak = SteakView.EditSteakInfo(id);
+                                foreach (var steak in SteakRepository.data)
+                                {
+                                    if (id == null)
+                                    {
+                                        Console.WriteLine("Not in list");
+                                    }
+                                    else
+                                        EditSteak(myId, steak);
+                                    {
+                                        ///throw new NotImplementedException();
+                                    }
+                                }
+                            }
+                            break;
+                        case 5:
+                            MenuChoice = 5;
+                            validMenu = true;
+                            RemoveSteak();
+                            break;
+                        default:
+                            break;
+                    }
+                }return GetMenuChoice();
+            }
+        }    
+        
 
 
 
@@ -149,7 +208,7 @@ namespace SteakManager.Views
         public static string EditSteakInfo(Steak steak)
         {
             GetSteakId();
-            
+
 
             string inputWeight;
             string inputIsBoneIn;
@@ -256,13 +315,13 @@ namespace SteakManager.Views
             }
 
             ///var exists = SteakRepository.data.steak.Id.Contains(myId);
-                                  
+
             //int IdEntered = SteakManager.Views.SteakView.GetSteakId();
             //bool validId = true;
 
             //while (validId)
 
-        } 
+        }
 
         public static bool ConfirmRemoveSteak()
         {
@@ -291,13 +350,13 @@ namespace SteakManager.Views
                     DeleteConfirmed = false;
 
                 }
-                
+
 
                 if (DeleteConfirmed == true)
                 {
                     DeleteConfirmed = ConfirmRemoveSteak();
-                   /// int d = IdEntered;
-                   /// SteakManager.Data.SteakRepository.Delete(int d);
+                    /// int d = IdEntered;
+                    /// SteakManager.Data.SteakRepository.Delete(int d);
 
                 }
                 return ConfirmRemoveSteak();

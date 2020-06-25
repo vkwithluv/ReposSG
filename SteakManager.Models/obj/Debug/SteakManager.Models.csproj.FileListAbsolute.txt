@@ -4,3 +4,9 @@ C:\Users\VKLaptop\source\repos\SteakManager.Models\obj\Debug\SteakManager.Models
 C:\Users\VKLaptop\source\repos\SteakManager.Models\obj\Debug\SteakManager.Models.csproj.CoreCompileInputs.cache
 C:\Users\VKLaptop\source\repos\SteakManager.Models\obj\Debug\SteakManager.Models.dll
 C:\Users\VKLaptop\source\repos\SteakManager.Models\obj\Debug\SteakManager.Models.pdb
+C:\Users\VKLaptop\source\repos\ReposSG\SteakManager.Models\bin\Debug\SteakManager.Models.dll
+C:\Users\VKLaptop\source\repos\ReposSG\SteakManager.Models\bin\Debug\SteakManager.Models.pdb
+C:\Users\VKLaptop\source\repos\ReposSG\SteakManager.Models\obj\Debug\SteakManager.Models.csprojAssemblyReference.cache
+C:\Users\VKLaptop\source\repos\ReposSG\SteakManager.Models\obj\Debug\SteakManager.Models.csproj.CoreCompileInputs.cache
+C:\Users\VKLaptop\source\repos\ReposSG\SteakManager.Models\obj\Debug\SteakManager.Models.dll
+C:\Users\VKLaptop\source\repos\ReposSG\SteakManager.Models\obj\Debug\SteakManager.Models.pdb
