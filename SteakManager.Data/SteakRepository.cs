@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using SteakManager.Models;
 
@@ -6,58 +8,65 @@ namespace SteakManager.Data
 {
     public class SteakRepository
     {
-        public static List<Steak> data = new List<Steak>();
-
-        public SteakRepository()
+        
+        public static List<Steak> steakList = new List<Steak>(); 
+        
+        public SteakRepository()        // this is also a constructor, by the way!
         {
-            data = new List<Steak>();
-            if (data == null)
+            steakList = new List<Steak>();
+            if (steakList == null)
             {
-                data.Add(new Steak(01, "Filet Mignon", "Tenderloin", 4, false));
-                data.Add(new Steak(04, "Skirt Steak", "Plate", 6.5, false));
-                data.Add(new Steak(03, "Ribeye", "Upper Ribcage", 10, false));
-                data.Add(new Steak(02, "Porterhouse", "1.25in Tenderloin & Short Loin cross section", 32, true));
-                data.Add(new Steak(05, "T-Bone", "0.5in Tenderloin & Short Loin cross section", 24, true));
-                data.Add(new Steak(06, "Tomahawk", "Upper Ribcage", 45, true));
+                steakList.Add(new Steak("Filet Mignon", "Tenderloin", 4, false)); // new Steak() calls the Steak constructor.
+                steakList.Add(new Steak("Skirt Steak", "Plate", 6.5, false));//so is the Id
+                steakList.Add(new Steak("Ribeye", "Upper Ribcage", 10, false));
+                steakList.Add(new Steak("Porterhouse", "1.25in Tenderloin & Short Loin cross section", 32, true));
+                steakList.Add(new Steak("T-Bone", "0.5in Tenderloin & Short Loin cross section", 24, true));
+                steakList.Add(new Steak("Tomahawk", "Upper Ribcage", 45, true));
 
-                //test: NY Strip (07, New York Strip, Short Loin, 6, false)
+                //test: NY Strip (New York Strip, Short Loin, 6, false)
             }
 
         }
 
+        // Add the steak to the steakList
         public static Steak Create(Steak steak)
         {
-            if (data.Any(x => x.Name == steak.Name))
-            {
+            if (steakList.Contains(steak))
                 return null;
-            }
-
             else
-                data.Add(steak);
+                steakList.Add(steak);
+                return steak;
 
-            return data.FirstOrDefault(d => d.Id == steak.Id);
-
+            //steakList.FirstOrDefault(d => d.Id == steak.Id);construtor should do this in Models
         }
+
+        // Get all steaks in the list
         public static List<Steak> ListAll()
         {
-            return data;
-        }
-        public static Steak ListById(int Id)
-        {
-            return data.FirstOrDefault(d => d.Id == Id);
+            return steakList;
         }
 
-        public static void Edit(int Id, Steak steak)
+        // Get a steak by its Id
+        public static Steak ListById(int Id)
         {
-            var dataOriginal = data.FirstOrDefault(d => d.Id == Id);
-            dataOriginal.Name = steak.Name;
-            dataOriginal.Cut = steak.Cut;
-            dataOriginal.Weight = steak.Weight;
-            dataOriginal.IsBoneIn = steak.IsBoneIn;
+            return steakList.FirstOrDefault(d => d.Id == Id);
         }
+
+        // Replace the steak with Id, with the new steak
+        public static void Edit(int Id, Steak newSteak)
+        {
+            // 1. Search steakList for a steak with an id equal to Id - in the repository or in View? I thought to dao a Contains() in View but save to repo?
+                    // I think the idea is that this steak parameter has already been edited, and now we just want to save it to the list.
+                    // The steak that's getting passed in IS the edited steak.
+            
+            // 2. Replace that steak with this newSteak.
+
+        }
+
+        // Remove the steak with Id from the steakList
         public static void Delete(int Id)
         {
-            data.Remove(data.FirstOrDefault(d => d.Id == Id));
+            steakList.Remove(steakList.FirstOrDefault(d => d.Id == Id));
         }
 
     }

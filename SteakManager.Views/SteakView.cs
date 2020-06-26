@@ -7,93 +7,9 @@ namespace SteakManager.Views
 {
     public class SteakView
     {
-        public static int MenuChoice;
-        public static int GetMenuChoice()
-        {
-            string inputMenu;
+        public static int IdEntered;      
 
-
-            Console.WriteLine("STEAK MANAGER \nMain Menu");
-            Console.WriteLine("Please enter the number of your chosen Menu option to begin.");
-            Console.Write("1. Create/Add a New Steak \n2. Display List of Steaks \n3. Search for Steak by ID# \n4. Edit Steak In List \n5. Remove Steak From List");
-            inputMenu = Console.ReadLine();
-            if (int.TryParse(inputMenu, out MenuChoice) || MenuChoice < 1 || MenuChoice > 5)
-            {
-                Console.WriteLine("Please enter a valid Menu choice, 1-5.");
-            }
-            else if (int.TryParse(inputMenu, out MenuChoice) || MenuChoice > 1 || MenuChoice < 5)
-            {
-
-                ///MenuChoice = GetMenuChoice();
-
-                bool validMenu = true;
-
-
-                while (validMenu)
-                {
-                    switch (MenuChoice)
-                    {
-                        case 1:
-                            MenuChoice = 1;
-                            validMenu = true;
-                            SteakController.CreateSteak();
-                            break;
-                        case 2:
-                            MenuChoice = 2;
-                            validMenu = true;
-                            DisplaySteaks();
-                            break;
-                        case 3:
-                            MenuChoice = 3;
-                            validMenu = true;
-                            SearchSteaks();
-                            break;
-                        case 4:
-                            MenuChoice = 4;
-                            validMenu = true;
-                            ///SteakView.GetSteakId();
-                            var myEditId = new SteakView();
-                            var myId = SteakView.GetSteakId();
-                            var id = SteakRepository.ListById(myId); //search in list repo
-
-                            if (id == null)
-                            {
-                                Console.WriteLine("Not in list.");
-                            }
-                            else
-                            {
-                                var getsteak = SteakView.EditSteakInfo(id);
-                                foreach (var steak in SteakRepository.data)
-                                {
-                                    if (id == null)
-                                    {
-                                        Console.WriteLine("Not in list");
-                                    }
-                                    else
-                                        EditSteak(myId, steak);
-                                    {
-                                        ///throw new NotImplementedException();
-                                    }
-                                }
-                            }
-                            break;
-                        case 5:
-                            MenuChoice = 5;
-                            validMenu = true;
-                            RemoveSteak();
-                            break;
-                        default:
-                            break;
-                    }
-                }return GetMenuChoice();
-            }
-        }    
-        
-
-
-
-
-        public static int IdEntered;
+        // You can delete this one
         public static int GetSteakId()
         {
             string inputId;
@@ -115,225 +31,184 @@ namespace SteakManager.Views
             } while (validId);
         }
 
-        public static string GetNewSteakData()
+
+
+        public static Steak GetNewSteakData()
         {
-            //string inputName;
-            //string inputCut;
-            string inputWeight;
-            string inputIsBoneIn;
-
-            bool NewDataComplete = false;
-
-            string readName;
-            string readCut;
+            bool validWeight = false;
             double readWeight;
-            int readIsBoneIn;
+            bool boneAnswered = false;
             bool HasBone;
-            //Steak.Equals(HasBone); //or how to use get, set in model
 
+            Console.WriteLine("Enter the Name of the Steak");
+            string inputName = Console.ReadLine();
+
+            Console.WriteLine("What part of the cow is this Steak Cut from?");
+            string inputCut = Console.ReadLine();
+
+            
+            Console.WriteLine("What is the Weight, in ounces, of the Steak? (please input a double)");
+            string inputWeight = Console.ReadLine();
             do
             {
-                Console.WriteLine("Enter the Name of the Steak");
-                readName = Console.ReadLine();
-
-                Console.WriteLine("What part of the cow is this Steak Cut from?");
-                readCut = Console.ReadLine();
-
-                Console.WriteLine("What is the Weight, in ounces, of the Steak?");
-                inputWeight = Console.ReadLine();
                 if (!double.TryParse(inputWeight, out readWeight))
                 {
-                    NewDataComplete = false;
-                    continue;
+                    Console.WriteLine("Invalid Input");
                 }
-
-                Console.WriteLine("Is there a Bone in this Steak? Type the number 1 for Yes or the number 2 for No.");
-                inputIsBoneIn = Console.ReadLine();
-
-                if (!int.TryParse(inputIsBoneIn, out readIsBoneIn))
+                else if(double.TryParse(inputWeight, out readWeight))
                 {
-                    switch (readIsBoneIn)
-                    {
-                        case 1:
-                            readIsBoneIn = 1;
-                            HasBone = true;
-                            NewDataComplete = true;
-                            //return HasBone;
-                            break;
-                        case 2:
-                            readIsBoneIn = 2;
-                            HasBone = false;
-                            NewDataComplete = true;
-                            break;
-                        case 3:
-                            NewDataComplete = false;
-                            Console.WriteLine("Invalid Input.");
-                            continue;
-                    }
-                    /***private bool HasBone(int readIsBoneIn)
-                               {
-                                   if (readIsBoneIn = 1)
-                                       return true;
-                                       NewDataComplete = true;
-
-                                   else if (readIsBoneIn = 2)
-                                        return false;
-                                        NewDataComplete = true;
-                                   else
-                                       NewDataComplete = false; 
-                                         Console.WriteLine("Invalid Input.");
-                                         continue;
-                               }***/
+                    validWeight = true;
                 }
+            } while (!validWeight);
 
-                if (NewDataComplete == true)
+
+            Console.WriteLine("Is there a Bone in this Steak? Type Y for Yes or N for No.");
+            string inputIsBoneIn = Console.ReadLine();
+            do
+            {
+                if (inputIsBoneIn == "Y" || inputIsBoneIn == "y")
                 {
-
-                    return GetNewSteakData();
-
-
+                    HasBone = true;
+                    boneAnswered = true;
+                    
                 }
-            } while (!NewDataComplete);
-
-            return null;
-
+                else if (inputIsBoneIn == "N" || inputIsBoneIn == "n")
+                {
+                    HasBone = false;
+                    boneAnswered = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input");
+                    HasBone = false;
+                }
+            } while (!boneAnswered);
+         
+            Steak mySteak = new Steak(inputName, inputCut, readWeight, HasBone);
+            Console.WriteLine("Steak Created!");
+            return mySteak;
         }
 
-
-        public static void DisplaySteaks(Steak data)
+        
+        public static void DisplaySteak(Steak data)
         {
             Console.WriteLine($"ID: {data.Id} \nName: {data.Name} \nCut: {data.Cut} \nWeight: {data.Weight}oz \n Bone In: {data.IsBoneIn}");
         }
 
-        public static string EditSteakInfo(Steak steak)
+        public static Steak EditSteakInfo(Steak steak)
         {
-            GetSteakId();
+            DisplaySteak(steak);
+           
+            bool validNewWeight = false;
+            double readNewWeight;
+            bool newBoneAnswered = false;
+            bool newHasBone;
+
+            Console.WriteLine("Enter the Name of the Steak");
+            string inputNewName = Console.ReadLine();
+
+            Console.WriteLine("What part of the cow is this Steak Cut from?");
+            string inputNewCut = Console.ReadLine();
 
 
-            string inputWeight;
-            string inputIsBoneIn;
+            Console.WriteLine("What is the Weight, in ounces, of the Steak? (please input a double)");
+            string inputNewWeight = Console.ReadLine();
+            do
+            {
+                if (!double.TryParse(inputNewWeight, out readNewWeight))
+                {
+                    Console.WriteLine("Invalid Input");
+                }
+                else if (double.TryParse(inputNewWeight, out readNewWeight))
+                {
+                    validNewWeight = true;
+                }
+            } while (!validNewWeight);
 
-            bool EditDataComplete = false;
 
-            string readName;
-            string readCut;
-            double readWeight;
-            int readIsBoneIn;
-            bool HasBone;
-            //Steak.Equals(HasBone); //or how to use get, set in model
+            Console.WriteLine("Is there a Bone in this Steak? Type Y for Yes or N for No.");
+            string inputIsBoneIn = Console.ReadLine();
+            do
+            {
+                if (inputIsBoneIn == "Y" || inputIsBoneIn == "y")
+                {
+                    newHasBone = true;
+                    newBoneAnswered = true;
+
+                }
+                else if (inputIsBoneIn == "N" || inputIsBoneIn == "n")
+                {
+                    newHasBone = false;
+                    newBoneAnswered = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input");
+                    newHasBone = false;
+                }
+            } while (!newBoneAnswered);
+
+            steak.Name = inputNewName;
+            steak.Cut = inputNewCut;
+            steak.Weight = readNewWeight;
+            steak.IsBoneIn = newHasBone;
+
+            Console.WriteLine("Steak Edited!");
+
+            return steak;
+
+        }
+
+
+        // Help the user find a steak. Return its id.
+
+        // 1. Ask the user for the name of the steak they want to find.
+        // 2. Search SteakRepository.steakList for a steak with that name.
+        // 3. If no steak was found for that name, ask for a new name.
+        // 4. If steak was found, return the Id of that steak.
+        public static int SearchSteak()
+        {
+            Steak foundSteak = null;
 
             do
             {
-                Console.WriteLine("Enter the NEW Name of the Steak");
-                readName = Console.ReadLine();
+                Console.WriteLine("Enter the Name of the Steak");
+                string inputSearchName = Console.ReadLine();
 
-                Console.WriteLine("What part of the cow is this NEW Steak Cut from?");
-                readCut = Console.ReadLine();
-
-                Console.WriteLine("What is the NEW Weight, in ounces, of the Steak?");
-                inputWeight = Console.ReadLine();
-                if (!double.TryParse(inputWeight, out readWeight))
+                foreach (Steak steak in SteakRepository.steakList)
                 {
-                    EditDataComplete = false;
-                    continue;
-                }
-
-                Console.WriteLine("Is there a Bone in this Steak? Type the number 1 for Yes or the number 2 for No.");
-                inputIsBoneIn = Console.ReadLine();
-
-                if (!int.TryParse(inputIsBoneIn, out readIsBoneIn))
-                {
-                    switch (readIsBoneIn)
+                    if (inputSearchName == steak.Name)
                     {
-                        case 1:
-                            readIsBoneIn = 1;
-                            HasBone = true;
-                            EditDataComplete = true;
-                            //return HasBone;
-                            break;
-                        case 2:
-                            readIsBoneIn = 2;
-                            HasBone = false;
-                            EditDataComplete = true;
-                            break;
-                        case 3:
-                            EditDataComplete = false;
-                            Console.WriteLine("Invalid Input.");
-                            continue;
+                        foundSteak = steak;
                     }
-                    /***private bool HasBone(int readIsBoneIn)
-                               {
-                                   if (readIsBoneIn = 1)
-                                       return true;
-                                       NewDataComplete = true;
-
-                                   else if (readIsBoneIn = 2)
-                                        return false;
-                                        NewDataComplete = true;
-                                   else
-                                       NewDataComplete = false; 
-                                         Console.WriteLine("Invalid Input.");
-                                         continue;
-                               }***/
                 }
 
-                if (EditDataComplete == true)
-                {
+                if (foundSteak == null)
+                    Console.WriteLine("That Steak Name is not in the List.");
 
-                    return null;
-
-
-                }
-            } while (!EditDataComplete);
-
-            return null;
-
-
-
-
+            } while (foundSteak == null);
+        
+            return foundSteak.Id;
         }
 
-        public static void SearchSteakId()
+
+
+        // Make sure the user wants to remove this steak. Return true or false.
+
+        // 1. Display the steak
+        // 2. Prompt the user - are they sure?
+        // 3. Return boolean
+        public static bool ConfirmRemoveSteak(Steak steak)
         {
-
-            GetSteakId();
-
-            IdEntered = GetSteakId();
-            var myIdView = new SteakView();
-            var myId = SteakView.GetSteakId();///IdEntered; 
-            var id = SteakRepository.ListById(myId);
-
-            foreach (var IdEntered in SteakRepository.data)
-            {
-                if (id == null)
-                {
-                    Console.WriteLine("Not in list");
-                }
-                else
-                    DisplaySteaks(id);
-
-            }
-
-            ///var exists = SteakRepository.data.steak.Id.Contains(myId);
-
-            //int IdEntered = SteakManager.Views.SteakView.GetSteakId();
-            //bool validId = true;
-
-            //while (validId)
-
-        }
-
-        public static bool ConfirmRemoveSteak()
-        {
-            GetSteakId();
             bool DeleteConfirmed = false;
 
             do
             {
+                DisplaySteak(steak);
 
                 string input;
 
-                Console.WriteLine("Are you sure you want to remove this Steak from the List? Type: y/n");
+                Console.WriteLine("Are you sure you want to remove this Steak from the List? Type Y for yes or N for no.");
                 input = Console.ReadLine();
                 if (DeleteConfirmed && input == "y" || input == "Y")
                 {
@@ -346,20 +221,19 @@ namespace SteakManager.Views
                 }
                 else
                 {
-                    Console.WriteLine("The is not a valid imput.");
+                    Console.WriteLine("The is not a valid input.");
                     DeleteConfirmed = false;
-
+                    
                 }
 
 
                 if (DeleteConfirmed == true)
                 {
-                    DeleteConfirmed = ConfirmRemoveSteak();
-                    /// int d = IdEntered;
-                    /// SteakManager.Data.SteakRepository.Delete(int d);
+                  int d = IdEntered;
+                  SteakManager.Data.SteakRepository.Delete(d);
 
                 }
-                return ConfirmRemoveSteak();
+                return ConfirmRemoveSteak(steak);
 
             } while (!DeleteConfirmed);
         }
